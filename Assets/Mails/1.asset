@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a58ddf2e48b80f4bb9da96ceab2c8dc, type: 3}
+  m_Name: 1
+  m_EditorClassIdentifier: 
+  title: I need more security!
+  author: Boss
+  body: Okay, it's me again. I need you to encrypt my files. I need to feel secure
+    and I've been told that this is a good thing to do. The problem is I don't know
+    how to do it so do it for me.
+  mission: crypter

@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a58ddf2e48b80f4bb9da96ceab2c8dc, type: 3}
+  m_Name: 0
+  m_EditorClassIdentifier: 
+  title: Welcome!
+  author: Boss
+  body: welcome new employee. You will feel at home here at Stuff Industry. Me and
+    my colleagues will send you emails for assignments, you will be expected to work
+    24/7. You have software at your disposal, I don't know how to use it but you'll
+    see for yourself, we won't do everything for you either. Well I will send you
+    an email in a short time I write it at the same time as this one so be patient.
+    Oh, and, I don't like people doing their work badly so I hope for you that you
+    won't make any mistake. And above all, send the work on time!
+  mission: 

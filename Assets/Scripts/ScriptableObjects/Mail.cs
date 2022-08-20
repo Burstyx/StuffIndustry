@@ -7,5 +7,6 @@ public class Mail : ScriptableObject
 {
     public string title;
     public string author;
-    [TextArea] public string body;
+    [TextArea(15,20)] public string body;
+    public string mission;
 }

@@ -8,9 +8,8 @@ public class WindowManager : MonoBehaviour
 
     public GameObject mailWindow;
     public GameObject crypterWindow;
-    public GameObject gameCreatorWindow;
-    public GameObject coffeeMakerWindow;
     public GameObject antivirusWindow;
+    public GameObject chestWindow;
 
     public GameObject blockInput;
 
@@ -33,27 +32,44 @@ public class WindowManager : MonoBehaviour
 
     public void OpenWindow(string windowName)
     {
-        blockInput.SetActive(true);
-        switch(windowName)
+        if (!Manager.instance.lose)
         {
-            case "mail":
-                mailWindow.SetActive(true);
-                break;
-            case "crypter":
-                crypterWindow.SetActive(true);
-                break;
-            case "gameCreator":
-                gameCreatorWindow.SetActive(true);
-                break;
-            case "coffeeMaker":
-                coffeeMakerWindow.SetActive(true);
-                break;
-            case "antivirus":
-                antivirusWindow.SetActive(true);
-                break;
-            default:
-                Debug.LogError("Window name is not correct");
-                break;
+            switch (windowName)
+            {
+                case "mail":
+                    mailWindow.SetActive(true);
+                    blockInput.SetActive(true);
+                    break;
+                case "crypter":
+                    if (MissionManager.instance.crypterMission > 0)
+                        crypterWindow.SetActive(true);
+                    else
+                        NotificationsManager.instance.NewNotification("Impossible", "You don't have any mission to do here. Check your email!");
+                    break;
+                case "antivirus":
+                    if (MissionManager.instance.antivirusMission > 0)
+                    {
+                        antivirusWindow.SetActive(true);
+                        blockInput.SetActive(true);
+                    }
+                    else
+                        NotificationsManager.instance.NewNotification("Impossible", "You don't have any mission to do here. Check your email!");
+                    break;
+                case "explorer":
+                    if (Manager.instance.admin)
+                    {
+                        chestWindow.SetActive(true);
+                        blockInput.SetActive(true);
+                    }
+                    else
+                    {
+                        NotificationsManager.instance.NewNotification("Impossible", "You don't have the required permission!");
+                    }
+                    break;
+                default:
+                    Debug.LogError("Window name is not correct");
+                    break;
+            }
         }
     }
 
@@ -63,8 +79,7 @@ public class WindowManager : MonoBehaviour
 
         mailWindow.SetActive(false);
         crypterWindow.SetActive(false);
-        gameCreatorWindow.SetActive(false);
-        coffeeMakerWindow.SetActive(false);
         antivirusWindow.SetActive(false);
+        chestWindow.SetActive(false);
     }
 }

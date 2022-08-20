@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5a58ddf2e48b80f4bb9da96ceab2c8dc, type: 3}
-  m_Name: WelcomeMail
+  m_Name: 10
   m_EditorClassIdentifier: 
-  title: Welcome!
-  author: Boss
-  body: Welcome to your new job! I have some missions for you today. Lets open the
-    TODO app!
+  title: Scan
+  author: anonim0us
+  body: Need a scan quickly.
+  mission: antivirus

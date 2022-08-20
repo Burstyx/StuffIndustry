@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a58ddf2e48b80f4bb9da96ceab2c8dc, type: 3}
+  m_Name: 8
+  m_EditorClassIdentifier: 
+  title: I have new things
+  author: John
+  body: Oh no. There are really terrible things going on here. Someone broke into
+    his office and got destroyed by the boss because he didn't do a virus scan properly.
+    And I thought you were the only one in this business. Wait... He's doing something
+    weird here. What the... WHAT?? I'm coming back to you right after I have to hide
+    to talk to you. There's some really weird stuff going on here...
+  mission: 
