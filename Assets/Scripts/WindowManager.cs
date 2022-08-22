@@ -13,6 +13,9 @@ public class WindowManager : MonoBehaviour
 
     public GameObject blockInput;
 
+    public AudioSource audioSource;
+    public AudioClip clickClip;
+
 
     private void Awake()
     {
@@ -36,21 +39,27 @@ public class WindowManager : MonoBehaviour
         {
             switch (windowName)
             {
+                
                 case "mail":
-                    mailWindow.SetActive(true);
+                    mailWindow.GetComponent<Animator>().SetBool("opened", true);
                     blockInput.SetActive(true);
+                    audioSource.PlayOneShot(clickClip);
                     break;
                 case "crypter":
                     if (MissionManager.instance.crypterMission > 0)
+                    {
                         crypterWindow.SetActive(true);
+                        audioSource.PlayOneShot(clickClip);
+                    }
                     else
                         NotificationsManager.instance.NewNotification("Impossible", "You don't have any mission to do here. Check your email!");
                     break;
                 case "antivirus":
                     if (MissionManager.instance.antivirusMission > 0)
                     {
-                        antivirusWindow.SetActive(true);
+                        antivirusWindow.GetComponent<Animator>().SetBool("opened", true);
                         blockInput.SetActive(true);
+                        audioSource.PlayOneShot(clickClip);
                     }
                     else
                         NotificationsManager.instance.NewNotification("Impossible", "You don't have any mission to do here. Check your email!");
@@ -58,8 +67,9 @@ public class WindowManager : MonoBehaviour
                 case "explorer":
                     if (Manager.instance.admin)
                     {
-                        chestWindow.SetActive(true);
+                        chestWindow.GetComponent<Animator>().SetBool("opened", true);
                         blockInput.SetActive(true);
+                        audioSource.PlayOneShot(clickClip);
                     }
                     else
                     {
@@ -77,9 +87,9 @@ public class WindowManager : MonoBehaviour
     {
         blockInput.SetActive(false);
 
-        mailWindow.SetActive(false);
+        mailWindow.GetComponent<Animator>().SetBool("opened", false);
         crypterWindow.SetActive(false);
-        antivirusWindow.SetActive(false);
-        chestWindow.SetActive(false);
+        antivirusWindow.GetComponent<Animator>().SetBool("opened", false);
+        chestWindow.GetComponent<Animator>().SetBool("opened", false);
     }
 }

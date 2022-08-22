@@ -13,6 +13,9 @@ public class NotificationsManager : MonoBehaviour
 
     public static NotificationsManager instance;
 
+    public AudioClip notifClip;
+    public AudioSource audioSource;
+
     private void Awake()
     {
         if(instance == null)
@@ -58,11 +61,14 @@ public class NotificationsManager : MonoBehaviour
     {
         notificationPanel.transform.Find("Title").GetComponent<TMP_Text>().text = notificationQueue[0].title;
         notificationPanel.transform.Find("Message").GetComponent<TMP_Text>().text = notificationQueue[0].body;
-        notificationPanel.SetActive(true);
+        notificationPanel.GetComponent<Animator>().SetBool("notif", true);
+
+        audioSource.clip = notifClip;
+        audioSource.PlayOneShot(notifClip);
     }
 
     void HideNotification()
     {
-        notificationPanel.SetActive(false);
+        notificationPanel.GetComponent<Animator>().SetBool("notif", false);
     }
 }

@@ -22,6 +22,10 @@ public class MailManager : MonoBehaviour
 
     public static MailManager instance;
 
+    public AudioSource audioSource;
+    public AudioClip clickClip;
+    public AudioClip doorClip;
+
     private void Awake()
     {
         if(instance == null)
@@ -34,11 +38,17 @@ public class MailManager : MonoBehaviour
 
     void Start()
     {
+        StartCoroutine(DelayedStart());
+    }
+
+    int secondToWait = 30;
+
+    IEnumerator DelayedStart()
+    {
+        yield return new WaitForSeconds(2f);
         NextMail();
         StartCoroutine(NextMission());
     }
-
-    int secondToWait = 10;
 
     IEnumerator NextMission()
     {
@@ -48,7 +58,7 @@ public class MailManager : MonoBehaviour
             NextMail();
         }
         StartCoroutine(NextMission());
-        secondToWait = Random.Range(20, 40);
+        secondToWait = Random.Range(30, 35);
     }
 
     private void Update()
@@ -72,7 +82,7 @@ public class MailManager : MonoBehaviour
 
     public void NextMail()
     {
-        if (mailIndex >= mails.Length)
+        if (mailIndex > mails.Length)
             return;
         GameObject mailBodyInstance = Instantiate(mailBody, mailBodyList.transform);
         mailBodyInstance.transform.Find("Title").GetComponent<TMP_Text>().text = mails[mailIndex].title;
@@ -106,6 +116,9 @@ public class MailManager : MonoBehaviour
                     NotificationsManager.instance.NewNotification("Permissions updated", "You now have the admin permission!");
                     StartCoroutine(TriggerImmediateNextMail());
                     break;
+                case "toctoc":
+                    audioSource.PlayOneShot(doorClip);
+                    break;
             }
         }
 
@@ -128,9 +141,11 @@ public class MailManager : MonoBehaviour
             List<GameObject> bodyList = new(mailIdentifier.Values);
             for (int i = 0; i < bodyList.Count; i++)
             {
+
                 bodyList[i].SetActive(false);
             }
             mailFound.SetActive(true);
+            audioSource.PlayOneShot(clickClip);
         }
     }
 }
