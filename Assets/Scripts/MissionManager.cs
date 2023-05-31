@@ -13,7 +13,7 @@ public class MissionManager : MonoBehaviour
     public GameObject mailLinkToAntivirusMission;
 
     public bool inMission = false;
-
+    
 
     public int antivirusMissionDone = 0;
     public int crypterMissionDone = 0;
